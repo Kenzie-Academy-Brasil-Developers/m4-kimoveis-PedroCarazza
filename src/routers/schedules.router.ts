@@ -5,15 +5,18 @@ import {
   verifyRealEstateScheduleExists,
   verifyUserScheduleExists,
 } from "../middlewares/schedules.middleware";
+import { createNewScheduleSchema } from "../schemas/schedules.schema";
+import { createSchedulesController, readAllSchedulesRealEstateController } from "../controllers/schedule.controller";
 
 export const scheduleRouter: Router = Router();
 
 scheduleRouter.post(
   '/',
   verifyToken,
-  validadeBody,
+  validadeBody(createNewScheduleSchema),
   verifyRealEstateExists,
   verifyRealEstateScheduleExists,
-  verifyUserScheduleExists
+  verifyUserScheduleExists,
+  createSchedulesController
 );
-scheduleRouter.get('/realEstate/:id', verifyToken, verifyAdmin);
+scheduleRouter.get('/realEstate/:id', verifyToken, verifyAdmin, readAllSchedulesRealEstateController);

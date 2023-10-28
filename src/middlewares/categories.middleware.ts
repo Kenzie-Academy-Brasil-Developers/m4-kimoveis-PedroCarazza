@@ -14,7 +14,7 @@ export const verifyUniqueCategoryName = async (req: Request, res: Response, next
 }
 
 export const verifyCategoryExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    const {id} = req.body;
+    const {id} = req.params;
 
     const category: Category | null = await categoryRepo.findOneBy({id: Number(id)});
 
