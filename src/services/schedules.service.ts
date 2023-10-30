@@ -33,7 +33,7 @@ export const readAllSchedulesRealEstateService = async (id:number): Promise<Real
         }
     });
 
-    if(!realEstate) throw new AppError('Real estate not found', 404);
+    if(!realEstate) throw new AppError('RealEstate not found', 404);
 
     return realEstate;
 };

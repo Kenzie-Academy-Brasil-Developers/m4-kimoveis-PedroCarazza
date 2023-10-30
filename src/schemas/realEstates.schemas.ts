@@ -20,7 +20,8 @@ export const realEstateSchema = z.object({
 export const createRealEstateSchema = realEstateSchema.omit({
     id: true,
     createdAt: true,
-    updatedAt: true
+    updatedAt: true,
+    sold: true
 });
 
 export const readRealEstateSchema = realEstateSchema.array();

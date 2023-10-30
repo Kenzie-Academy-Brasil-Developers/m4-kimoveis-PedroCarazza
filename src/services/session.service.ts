@@ -11,11 +11,11 @@ export const loginService = async (data: UserLogin): Promise<LoginReturn> => {
 
     const user: User | null = await userRepo.findOneBy({email});
 
-    if(!user) throw new AppError('Email/password is invalid', 401);
+    if(!user) throw new AppError('Invalid credentials', 401);
 
     const comparePass = await compare(data.password, user.password);
 
-    if(!comparePass) throw new AppError('Email/password is invalid', 401);
+    if(!comparePass) throw new AppError('Invalid credentials', 401);
 
     const token: string = sign(
         {email: user.email, admin: user.admin},

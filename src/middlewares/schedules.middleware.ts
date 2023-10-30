@@ -13,7 +13,7 @@ export const verifyRealEstateExists = async (req: Request, res: Response, next: 
         }
     });
     
-    if(!realEstate) throw new AppError('Real estate not found', 404);
+    if(!realEstate) throw new AppError('RealEstate not found', 404);
 
     return next();
 }

@@ -4,7 +4,7 @@ import Address from "./Addresses.entity";
 import Category from "./Category.entity";
 
 @Entity('realEstates')
-export default class RealEstate{
+class RealEstate{
     @PrimaryGeneratedColumn('increment')
     id: number
     
@@ -12,7 +12,7 @@ export default class RealEstate{
     sold: boolean
 
     @Column({ type: 'decimal', precision: 12, scale: 2, default: 0})
-    value: number
+    value: number | string
 
     @Column()
     size: number
@@ -33,3 +33,5 @@ export default class RealEstate{
     @ManyToOne(() => Category, (category) => category.realEstate)
     category: Category
 }
+
+export default RealEstate

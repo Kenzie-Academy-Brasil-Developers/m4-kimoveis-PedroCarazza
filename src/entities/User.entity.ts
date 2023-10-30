@@ -4,7 +4,7 @@ import { getRounds, hashSync } from "bcryptjs";
 
 
 @Entity('users')
-export default class User {
+class User {
     @PrimaryGeneratedColumn('increment')
     id: number
 
@@ -42,3 +42,5 @@ export default class User {
         }
     }
 }
+
+export default User

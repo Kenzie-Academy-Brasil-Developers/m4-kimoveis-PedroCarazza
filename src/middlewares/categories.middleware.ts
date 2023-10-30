@@ -8,7 +8,7 @@ export const verifyUniqueCategoryName = async (req: Request, res: Response, next
 
     const category: Category | null = await categoryRepo.findOneBy({name});
 
-    if(category) throw new AppError('Category alread exists', 409);
+    if(category) throw new AppError('Category already exists', 409);
 
     return next();
 }
